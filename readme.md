@@ -1,14 +1,16 @@
 # unbound DNS running on Alpine Linux
-This is an unbound container that will respond to requests from all IPv4 and IPv6 clients.
+A container with Unbound DNS resolver running on Alpine Linux. All IPv4 and IPv6 networks are allowed.
+
+[![](https://img.shields.io/docker/pulls/bpoe/unbound.svg)](https://hub.docker.com/r/bpoe/unbound)
 
 ### To Build
 ```
-docker build . -t bpoe/unbound
+docker build https://github.com/Bpoe/docker-unbound-alpine.git -t bpoe/unbound
 ```
 
 ### To Run
 ```
-docker run -d -p 53:53 -p 53:53/udp bpoe/unbound
+docker run -d -p 53:53 -p 53:53/udp --restart=unless-stopped bpoe/unbound
 ```
 
 ### Use macvlan network
